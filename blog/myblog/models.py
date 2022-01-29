@@ -1,4 +1,4 @@
-from datetime import timezone
+import datetime
 
 from django.contrib.auth.models import User
 from django.db import models
@@ -12,7 +12,7 @@ class Post(models.Model):
     description = models.TextField()
     content = models.TextField()
     image = models.ImageField()
-    created_at = models.DateField(default=timezone.now)
+    created_at = models.DateField(default=datetime.datetime.now())
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     tag = models.CharField(max_length=200)
 
